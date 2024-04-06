@@ -1,69 +1,72 @@
 'use client'
-import AnimeContainer from "@/components/AnimeContainer";
 import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
+import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from "react";
 
-const SearchPage = ({  }) => {
-  const [data, setData] = useState([])
-  const [chosenFilter, setChosenFilter ] = useState({
-    search: '',
-    Genres : '',
-    Year: '',
-    ['Airing Status']: '',
-    Format: '',
-    Season: '',
-  })
+// 1. tirar o chosen e setchosen
+// 2. tirar o queryparam de ser objeto e n passar mais ele pros filtros como prop, pq o search pode ser acessado dentro dos filtros
+// 3. tirar o useffect e botar async, server components
+// 4. vc pode criar um hook e similarmente, na home, usar o hook
 
-  console.log({chosenFilter})
+const SearchPage = () => {
+  const [data, setData] = useState([])
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search')
+  const genres = searchParams.get('Genres')
+  const year = searchParams.get('Year')
+  const airing = searchParams.get('Airing Status')
+  const season = searchParams.get('Season')
+  const format = searchParams.get('Format')
+
+  const queryParams = {
+    search: search || '',
+    Genres: genres || '',
+    Year: year || '',
+    ['Airing Status']: airing || '',
+    Format: format || '',
+    Season: season || '',
+  }
 
   useEffect(() => {
     const handleFetch = async () => {
-      let filters = '?'
-      if (chosenFilter.search) {
-        filters += `&filter[text]=${chosenFilter.search}`
+      let filters = ''
+      if (queryParams.search) {
+        filters += `&filter[text]=${queryParams.search}`
       }
-      if (chosenFilter.Genres) {
-        filters += `&filter[categories]=${chosenFilter.Genres}`
+      if (queryParams.Genres) {
+        filters += `&filter[categories]=${queryParams.Genres}`
       }
-      if (chosenFilter.Year) {
-        filters += `&filter[year]=${chosenFilter.Year}`
+      if (queryParams.Year) {
+        filters += `&filter[year]=${queryParams.Year}`
       }
-      if (chosenFilter['Airing Status']) {
-        console.log('passed!')
-        filters += `&filter[status]=${chosenFilter['Airing Status']}`
+      if (queryParams['Airing Status']) {
+        filters += `&filter[status]=${queryParams['Airing Status']}`
       }
-      if (chosenFilter.Format) {
-        filters += `&filter[subtype]=${chosenFilter.Format}`
+      if (queryParams.Format) {
+        filters += `&filter[subtype]=${queryParams.Format}`
       }
-      if (chosenFilter.Season) {
-        filters += `&filter%5Bseason%5D=${chosenFilter.Season}`
+      if (queryParams.Season) {
+        filters += `&filter%5Bseason%5D=${queryParams.Season}`
       }
 
       const res = await fetch(
-        `https://kitsu.io/api/edge/anime${filters}`
+        `https://kitsu.io/api/edge/anime?${filters}`
       );
       const results = await res.json();
-      console.log({results})
+      
       setData(results)
-    
     }
     handleFetch()
-  }, [chosenFilter])
+  }, [search, genres, season, format, airing, year])
 
 
   return (
     <>
-      <Filters setChosenFilter={setChosenFilter} chosenFilter={chosenFilter}/>
+      <Filters queryParams={queryParams}/>
       <FiltersResult results={data} />
     </>
   );
 };
 
 export default SearchPage;
-
-// // {searchParams ? <div className="grid justify-between sm:grid sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-5   xl:grid-cols-6 w-full gap-x-4 mx-auto">
-// {row.data?.slice(0, 6).map((anime) => {
-//     return <Card key={anime.id} anime={anime} />;
-//   })}
-// </div> :  <AnimeContainer rowsData={rowsData}/> }

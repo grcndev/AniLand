@@ -1,18 +1,19 @@
+import { useRouter, useSearchParams } from "next/navigation";
 
-const DropdownContainer = ({ contents, category, setChosenFilter, chosenFilter}) => {
+const DropdownContainer = ({ contents, category,}) => {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
   return (
     <div className="flex flex-col mt-4">
       {contents.map((content, index) => (
         <div key={index} onClick={() => {
-          const query = {
-            ...chosenFilter,
-            [category]: content.toLowerCase(),
-          }
+          const searchedContent = typeof content === 'number' ? content : content.toLowerCase()
 
-          setChosenFilter(query)
-            
-
-
+          const params = new URLSearchParams(searchParams.toString())
+                params.set(category, searchedContent)
+                const queryParam = params.get(category)
+                router.push(`/search/anime?${category}=${queryParam}`) // vamos precisar somar os URLs anteriores, dos outros dropdowns e do search
         }}> {content} </div>
       ))}
     </div>
@@ -20,23 +21,3 @@ const DropdownContainer = ({ contents, category, setChosenFilter, chosenFilter})
 };
 
 export default DropdownContainer;
-
-// FiltersContainer
-// a principio, criaria 2 FilterInputs, um com dropdown e o outro com o search
-// entao ele renderiza 4 do tipo dropdown e 1 do tipo search
-// qnd cada um tiver funcionando em isolamento perfeitamente
-// aih vc pode pensar numa forma de generalizar eles num unico componente
-// 5 filtersInput unificados
-//
-
-//   if (searchWordEntered) {
-//     filtersUrl += `filter[text]=${searchWordEntered}`;
-//   }
-//   if (chosenYear) {
-//     filtersUrl += `&filter[year]=${chosenYear}`;
-//   }
-//   if (chosenStatus) {
-//     filtersUrl += `&filter[status]=${chosenStatus}`;
-//   }
-//   if (chosenFormat) {
-//     filtersUrl += `&filter[subtype]=${chosenFormat}`;

@@ -5,8 +5,6 @@ import React from "react";
 const Card = ({ anime }) => {
   const title = anime.attributes.titles.en;
   const canonicalTitle = anime.attributes.canonicalTitle
-  console.log(anime.attributes.titles)
- 
   const poster = anime.attributes.posterImage.large;
 
   return (

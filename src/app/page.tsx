@@ -3,14 +3,26 @@ import Filters from "@/components/Filters"
 import Landing from "@/components/Landing"
 import Navbar from "@/components/Navbar"
 
- const Home = async () => {
+// 1. qnd o cara digitar na home page, a gente joga ele pra search page
+// 2. guardar a query da home page e enviar ela pra search page, parece q eh jogo botar no query param
+// 3. primeiro lugar, pegar o query param do url e jogar como valor do input
+// 4. e se houver valor, no query/param/input, a gente faz um fetch
+
+ const Home =  async () => {
+
+  const queryParams = {
+    search: '',
+    Genres: '',
+    Year: '',
+    ['Airing Status']: '',
+    Format: '',
+    Season: '',
+  }
 
   const fetchRows = async () => {
     const trendingResponse = await fetch(`https://kitsu.io/api/edge/trending/anime?limit=20?`)
     
     const {data: trendingData} = await trendingResponse.json()
-
-    console.log(trendingData)
 
     const popularResponse = await fetch(`https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=current&page%5Blimit%5D=6&sort=-user_count`)
     
@@ -42,18 +54,19 @@ import Navbar from "@/components/Navbar"
       data: allTimeData
     },
   ]
-    
   }
 
   const rowsData = await fetchRows()
 
+  console.log({rowsData})
  
   return (
     <>
    <Navbar />
     <Landing />
-    <Filters />
-    <AnimeContainer rowsData={rowsData}/>
+    <Filters queryParams={queryParams}/>
+    <AnimeContainer rowsData={rowsData} />
+     
     </>
   );
 }

@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Overpass } from "next/font/google";
 import "./globals.css";
 
-
 const overpass = Overpass({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Anilist",
-  description: "My Anilist's clone",
+  description: "My Anilist clone",
 };
 
 export default function RootLayout({

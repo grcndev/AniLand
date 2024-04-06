@@ -11,7 +11,6 @@ const AnimePage = async ({ params }) => {
 
   const res = await fetch(`https://kitsu.io/api/edge/anime/${animeId}`);
   const anime = await res.json();
-  console.log(anime.data.attributes.en);
   return <div>{anime.data.attributes.titles.en}</div>;
 };
 
