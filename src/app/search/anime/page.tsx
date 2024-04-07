@@ -1,9 +1,7 @@
 import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
 
-
 const SearchPage = async ({searchParams}) => {
-
 
   const search = searchParams.search
   const genres = searchParams.Genres
@@ -45,13 +43,10 @@ const SearchPage = async ({searchParams}) => {
     const res = await fetch(
       `https://kitsu.io/api/edge/anime?${filters}`
     );
-    
     return await res.json();
-    
   }
 
   const results = await handleFetch()
-
 
   return (
     <>

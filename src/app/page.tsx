@@ -53,20 +53,16 @@ import Navbar from "@/components/Navbar"
       title: 'All Time Popular',
       data: allTimeData
     },
-  ]
-  }
+  ]}
 
   const rowsData = await fetchRows()
-
-  console.log({rowsData})
  
   return (
     <>
    <Navbar />
     <Landing />
     <Filters queryParams={queryParams}/>
-    <AnimeContainer rowsData={rowsData} />
-     
+    <AnimeContainer rowsData={rowsData} /> 
     </>
   );
 }

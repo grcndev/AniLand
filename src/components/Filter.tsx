@@ -2,15 +2,16 @@
 import DropdownContainer from "@/utilities/DropdownContainer";
 import React, { useState } from "react";
 import {FORMAT, GENRES, SEASON, STATUS, YEARS} from '../utilities/Data'
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-const Filter =  ({ category, queryParams}) => {
+const Filter = ({ category, queryParams}) => {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault();
     router.push(`/search/anime`)
   }
+  const searchParams = useSearchParams
 
   const mapCategoryIntoContents = (categoryString: string) => {
     if (categoryString === 'Genres') {
@@ -33,14 +34,23 @@ const Filter =  ({ category, queryParams}) => {
 
   const contents = mapCategoryIntoContents(category) 
 
+  console.log(queryParams[category])
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="cursor-pointer">
+    <div onSubmit={handleSubmit}>
+      <div className="cursor-pointer z-50">
         <h6 className="text-txtfilter text-base font-medium pt-3 mb-1">
           {category}
         </h6>
-        <div className="items-center rounded-md outline-none bg-white shadow-filter box-border font-medium text-sm flex py-2.5 px-1.5" >
-          <input className="flex mr-1" placeholder="any" 
+        <div className="items-center rounded-md outline-none bg-white shadow-filter box-border font-medium text-sm flex py-2.5 px-1.5 " >
+          <input className="flex ml-1 text-blue" placeholder="Any" 
+          value={queryParams[category]} onChange={(e) => {
+            const params = new URLSearchParams(searchParams.toString());
+            params.set(category, e.target.value);
+            const searchParam = params.get("search");
+            router.push(`/search/anime?search=${searchParam}`); 
+            
+          }}
           />
           <svg className="h-4 w-6 text-sm" onClick={() => setIsOpen(!isOpen)}>
               <path
@@ -49,13 +59,11 @@ const Filter =  ({ category, queryParams}) => {
               ></path>
             </svg>
         </div>
-       
       </div>
-      {isOpen && category === category ? (<div>
-            <DropdownContainer contents={contents} category={category} queryParams={queryParams}/>
-           </div>) : (false)
+      {isOpen && category === category ? (
+            <DropdownContainer contents={contents} category={category} queryParams={queryParams}/>) : (false)
            }
-    </form>
+    </div>
   );
 };
 
