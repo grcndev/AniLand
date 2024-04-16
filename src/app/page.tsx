@@ -1,5 +1,6 @@
 import AnimeContainer from "@/components/AnimeContainer";
 import Filters from "@/components/Filters";
+import Footer from "@/components/Footer";
 import Landing from "@/components/Landing";
 import Navbar from "@/components/Navbar";
 
@@ -71,6 +72,7 @@ const Home = async () => {
       <Landing />
       <Filters queryParams={queryParams} />
       <AnimeContainer rowsData={rowsData} />
+      <Footer/>
     </>
   );
 };

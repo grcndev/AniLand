@@ -31,6 +31,9 @@ const config: Config = {
       "addlist": "#3db4f2",
       "buttonfav": "#EC294B",
       "titlesec": "#5C728A",
+      "footerbg" : "#11161d",
+      "footertxt": "#A0B1C5",
+      "bordersq" : "#46546b",
     },
     extend: {
       boxShadow: {

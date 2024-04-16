@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SectionAnimeId from "@/utilities/SectionAnimeId";
 import Image from "next/image";
@@ -11,6 +12,7 @@ const AnimePage = async ({ params }) => {
   const res = await fetch(`https://kitsu.io/api/edge/anime/${animeId}`);
   const anime = await res.json();
   return (
+    <>
     <div className="flex flex-col relative mt-0">
       <div className="w-full h-full z-10 relative shadow-sdcover bg-cover bg-repeat bg-center">
         <Navbar />
@@ -46,9 +48,9 @@ const AnimePage = async ({ params }) => {
                 Add to list
               </span>
             </div>
-            <div className="font-xs mt-3 rounded-md w-10 h-10 bg-buttonfav">
+            <div className="mt-3 rounded-md w-10 h-10 bg-buttonfav">
               <svg
-                className="h-8 w-8 items-center text-sgtxcol mt-2 ml-2 text-xs"
+                className="h-8 w-8 items-center text-sgtxcol mt-2 ml-2"
                 viewBox="0 0 800 800"
               >
                 <path
@@ -109,6 +111,8 @@ const AnimePage = async ({ params }) => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import Footer from "./Footer";
 
 const FiltersResult = ({ results }) => {
   return (
@@ -13,6 +14,7 @@ const FiltersResult = ({ results }) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
