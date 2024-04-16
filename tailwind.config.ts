@@ -27,10 +27,15 @@ const config: Config = {
       "spanldg": "#acd5f2;",
       "white": "#ffffff",
       "blue": "#3DB4F2",
+      "singletxt":'#7A858F',
+      "addlist": "#3db4f2",
+      "buttonfav": "#EC294B",
+      "titlesec": "#5C728A",
     },
     extend: {
       boxShadow: {
         'filter': '0 14px 30px rgba(103,132,187,.1), 0 4px 4px rgba(103,132,187,.04)',
+        'sdcover':'rgba(0, 0, 0, 0.5)' ,
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
