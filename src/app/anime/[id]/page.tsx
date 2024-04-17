@@ -43,14 +43,14 @@ const AnimePage = async ({ params }) => {
             }}
           />
           <div className="flex px-4 py-2 h-20">
-            <div className="flex px-10 m-3 rounded-md bg-addlist ml-8">
+            <div className="flex px-11 m-3 rounded-md bg-addlist ml-8">
               <span className="text-xs mt-3 w-20 items-center justify-between text-sgtxcol">
                 Add to list
               </span>
             </div>
             <div className="mt-3 rounded-md w-10 h-10 bg-buttonfav">
               <svg
-                className="h-8 w-8 items-center text-sgtxcol mt-2 ml-2"
+                className="h-8 w-8 items-center text-sgtxcol mt-2.5 ml-2.5"
                 viewBox="0 0 800 800"
               >
                 <path

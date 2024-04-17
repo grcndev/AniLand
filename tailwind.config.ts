@@ -34,6 +34,8 @@ const config: Config = {
       "footerbg" : "#11161d",
       "footertxt": "#A0B1C5",
       "bordersq" : "#46546b",
+      "badgeage" : "#8a2c0f",
+      "badgebg" : "#ebb62d",
     },
     extend: {
       boxShadow: {
