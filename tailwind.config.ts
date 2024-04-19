@@ -36,6 +36,10 @@ const config: Config = {
       "bordersq" : "#46546b",
       "badgeage" : "#8a2c0f",
       "badgebg" : "#ebb62d",
+      "sectionbtn" : "#3577ff",
+      "sectionbtncl" : "#f7fafc",
+      "sectioncircle" : "#d9e6ff",
+      "chevroncol" : "#ADC0D2" ,
     },
     extend: {
       boxShadow: {

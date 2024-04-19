@@ -65,7 +65,7 @@ const Filter = ({ category, placeholder, queryParams}) => {
             
           }}
           />
-          {category && category !== 'Search'? (<svg className="h-4 w-6 text-sm" onClick={() => setIsOpen(!isOpen)}>
+          {category && category !== 'Search'? (<svg className="h-4 w-6 text-sm text-chevroncol" onClick={() => setIsOpen(!isOpen)}>
               <path
                 d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
                 fill="currentColor"

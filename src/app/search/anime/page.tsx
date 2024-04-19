@@ -1,5 +1,6 @@
 import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
+import Navbar from "@/components/Navbar";
 
 const SearchPage = async ({searchParams}) => {
 
@@ -50,6 +51,7 @@ const SearchPage = async ({searchParams}) => {
 
   return (
     <>
+      <Navbar/>
       <Filters queryParams={queryParams}/>
       <FiltersResult results={results} />
     </>

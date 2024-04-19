@@ -1,9 +1,10 @@
-import React from "react";
+
 
 const Badge = ({ title, age, episodes, format, rating, status }) => {
+  
   return (
-    <div className="flex flex-col bg-sgtxcol ml-32 mr-8 p-16 rounded -mt-48 w-64 absolute z-30">
-      <div className="flex flex-col bg-sgtxcol rotate-45 h-8 w-8 -top-8 -ml-16 py-2 relative -z-20 ">
+    <div className="flex flex-col bg-sgtxcol ml-52 mr-8 p-16 rounded -mt-72 w-64 absolute z-30" >
+      <div className="flex flex-col bg-sgtxcol rotate-45 h-8 w-8 -top-8 -ml-16 py-2 relative -z-20">
         {" "}
       </div>
       <div className="flex items-center -mt-20 justify-between">

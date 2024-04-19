@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Overpass } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const overpass = Overpass({ subsets: ["latin"] });
 
