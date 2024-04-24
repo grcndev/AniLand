@@ -35,7 +35,6 @@ const Filter = ({ category, placeholder, queryParams}) => {
 
   const contents = mapCategoryIntoContents(category) 
 
-  console.log(queryParams[category])
   
   return (
     <div onSubmit={handleSubmit}>
@@ -60,7 +59,7 @@ const Filter = ({ category, placeholder, queryParams}) => {
           value={queryParams[category]} onChange={(e) => {
             const params = new URLSearchParams(searchParams.toString());
             params.set(category, e.target.value);
-            const searchParam = params.get("search");
+            const searchParam = params.get("Search");
             router.push(`/search/anime?search=${searchParam}`); 
             
           }}

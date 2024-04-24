@@ -5,7 +5,7 @@ const DropdownContainer = ({ contents, category }) => {
   const router = useRouter();
 
   return (
-    <div className=" bg-white rounded-md mt-6 z-40 absolute outline-none font-medium min-w-40 text-sm">
+    <div className="line-clamp-2 bg-white rounded-md mt-2 z-40 absolute outline-none font-medium w-48 text-sm">
       {contents.map((content, index) => (
         <div className=""
           key={index}
@@ -19,8 +19,8 @@ const DropdownContainer = ({ contents, category }) => {
           }}
         >
           {" "}
-          <div className="gap-y-1 text-txtcard hover:bg-blue">
-            <span className="cursor-pointer px-4  h-4 hover:bg-blue">{content}</span>
+          <div className="flex gap-y-1 text-txtcard hover:bg-blue">
+            <span className="flex cursor-pointer px-4 text-txtcard h-4 gap-y-2 hover:bg-blue">{content}</span>
           </div>
         </div>
       ))}

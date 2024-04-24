@@ -23,7 +23,7 @@ const Home = async () => {
     const trendingResponse = await fetch(
       `https://kitsu.io/api/edge/trending/anime?limit=20?`
     );
-
+   
     const { data: trendingData } = await trendingResponse.json();
 
     const popularResponse = await fetch(

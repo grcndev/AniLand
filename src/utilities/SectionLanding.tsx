@@ -13,7 +13,7 @@ const SectionLanding = ({ sectionTitle, sectionText, svg }) => {
         style={{ height: "96px", width: "80px", marginRight: "30px"}}
       />
       <div className="flex flex-col gap-4 max-w-xs">
-        <h6 className="text-mjtitleldg text-lg">{sectionTitle}</h6>
+        <h6 className="text-mjtitleldg text-lg=[">{sectionTitle}</h6>
         <span className=" block items-center p-x-4 text-spanldg w-auto mt-2 text-sm font-light line-clamp-2 leading-6">{sectionText}</span>
       </div>
     </div>

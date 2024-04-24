@@ -12,17 +12,17 @@ const Card = ({ anime }) => {
  
   return (
     <>
-    <div className="w-full text-center mx-auto relative">
+    <div className="w-full text-center relative">
       <div className="p-4 max-w-6xl mx-auto" >
         <Link href={`/anime/${anime.id}`}>
-          <div className="flex flex-col justify-evenly">
+          <div className="flex flex-col">
             <Image
-              className="h-full max-w-full mb-3 rounded-sm"
+              className="h-full mb-3 rounded-sm"
               height={265}
               width={185}
               alt="poster"
               src={poster}
-              style={{ height: "100%", width: "100%" }}
+              style={{ height: "265 px", width: "185 px" }}
               onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
             />
             <div className="text-sm mb-3 text-left inline-block text-txtcard">
