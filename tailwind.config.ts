@@ -44,6 +44,7 @@ const config: Config = {
     extend: {
       boxShadow: {
         'filter': '0 14px 30px rgba(103,132,187,.1), 0 4px 4px rgba(103,132,187,.04)',
+        'filterblue' : '0 2px 43px rgba(8, 150, 230, .6)',
         'sdcover':'rgba(0, 0, 0, 0.5)' ,
       },
       backgroundImage: {
