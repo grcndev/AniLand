@@ -47,7 +47,7 @@ const Landing = () => {
         />
       </div>
     </div>
-    <div className="flex items-center justify-between -mt-6 font-semibold mb-36 rounded-3xl w-48 bg-sectionbtn hover:shadow-filterblue text-sectionbtncl py-1.5 px-3">
+    <div className="flex items-center justify-between -mt-6 font-semibold mb-36 rounded-3xl w-48 bg-sectionbtn hover:shadow-filterblue hover:cursor-pointer text-sectionbtncl py-1.5 px-3">
         <div></div>
         <div className="flex items-center justify-center">Join Now</div>
         <div className="flex items-end justify-end bg-sectioncircle text-sectionbtn py-2 px-2 w-9 h-9 rounded-full">

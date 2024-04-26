@@ -1,13 +1,14 @@
-import {useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const DropdownContainer = ({ contents, category }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
   return (
-    <div className="line-clamp-2 overflow-y-hidden bg-white rounded-md mt-2 z-40 absolute outline-none font-medium w-48 text-sm">
+    <div className="overflow-hidden overflow-y-auto max-h-96 bg-white rounded-md mt-2 absolute font-medium w-48 text-sm z-40">
       {contents.map((content, index) => (
-        <div className=""
+        <div
+          className=""
           key={index}
           onClick={() => {
             const searchedContent =
@@ -15,12 +16,12 @@ const DropdownContainer = ({ contents, category }) => {
             const params = new URLSearchParams(searchParams.toString());
             params.set(category, searchedContent);
             const queryParam = params.get(category);
-            router.push(`/search/anime?${category}=${queryParam}`); // vamos precisar somar os URLs anteriores, dos outros dropdowns e do search
+            router.push(`/search/anime?${category}=${queryParam}`);
           }}
         >
           {" "}
-          <div className="flex gap-y-4 cursor-pointer text-txtcard hover:text-txtcard hover:bg-blue">
-            <span className="flex cursor-pointer mt-4 mx-4 hover:bg-txnav text-txtcard h-4 gap-y-2 hover:txt-blue">{content}</span>
+          <div className="px-2 py-2 my-2 mx-2 hover:bg-bgcbody text-txtcard hover:text-blue rounded-sm cursor-pointer" style={{}}>
+            {content}
           </div>
         </div>
       ))}
@@ -29,3 +30,7 @@ const DropdownContainer = ({ contents, category }) => {
 };
 
 export default DropdownContainer;
+
+
+
+// 

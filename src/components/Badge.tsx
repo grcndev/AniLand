@@ -19,7 +19,7 @@ const Badge = ({ title, age, episodes, format, rating, status }) => {
             focusable="false"
             data-prefix="far"
             role="img"
-            class="icon face"
+          
             width="1em"
             viewBox="0 0 496 512"
             fill="none"

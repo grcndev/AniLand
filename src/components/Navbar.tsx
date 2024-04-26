@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className=" cursor-pointer hover:text-hovnav">Login</span>
-          <span className="px-4 py-2 bg-sgbg hover:bg-blue-50 active:bg-blue-50 rounded-md text-sgtxcol hover:bg-sgbg-50 cursor-pointer">
+          <span className="px-4 py-2 bg-sgbg hover:bg-blue-50 hover:shadow-filterblue active:bg-blue-50 rounded-md text-sgtxcol hover:bg-sgbg-50 cursor-pointer">
             Sign Up
           </span>
         </div>

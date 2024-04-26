@@ -34,7 +34,6 @@ const Filter = ({ category, placeholder, queryParams}) => {
   }
 
   const contents = mapCategoryIntoContents(category) 
-
   
   return (
     <div onSubmit={handleSubmit}>
@@ -55,7 +54,7 @@ const Filter = ({ category, placeholder, queryParams}) => {
           style={{ height: "20px", width: "20px" }}
         />
         ): null}
-          <input className="flex ml-1 text-blue" placeholder={placeholder}
+          <input className="flex focus:outline-none ml-1 text-blue" placeholder={placeholder}
           value={queryParams[category]} onChange={(e) => {
             const params = new URLSearchParams(searchParams.toString());
             params.set(category, e.target.value);
@@ -72,7 +71,7 @@ const Filter = ({ category, placeholder, queryParams}) => {
             </svg>): null}
         </div>
       </div>
-      {isOpen && category === category ? (
+      {isOpen ? (
             <DropdownContainer contents={contents} category={category} queryParams={queryParams}/>) : (false)
            }
     </div>
