@@ -7,16 +7,16 @@ import stats from "../assets/stats.svg";
 const Landing = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-    <div className="flex flex-col bg-bglanding rounded-2xl w-auto px-12 mt-12 lg:mx-24 xl:mx-48 2xl:mx-[26rem]">
+    <div className="flex flex-col bg-bglanding rounded-2xl w-auto px-12 mt-10 lg:mx-24 xl:mx-48 2xl:mx-[26rem]">
       <div className="flex flex-col items-center gap-4 mt-16 font-bold">
-        <h1 className="text-mjtitleldg text-3xl mb-4">
+        <h1 className="text-mjtitleldg text-3xl mb-2">
           The next-generation anime platform
         </h1>
-        <h4 className="text-spanldg justify-center text-center text-xl max-w-sm font-light mb-20">
+        <h4 className="text-spanldg justify-center text-center text-xl max-w-sm font-light mb-10">
           Track, share, and discover your favorite anime and manga with Anilist
         </h4>
       </div>
-      <div className="flex flex-wrap gap-y-12 justify-evenly items-center py-18 mb-36">
+      <div className="flex flex-wrap justify-evenly items-center mb-16">
         <SectionLanding
           svg={stats}
           sectionTitle={"Discover your obcessions"}
@@ -47,7 +47,7 @@ const Landing = () => {
         />
       </div>
     </div>
-    <div className="flex items-center justify-between -mt-6 font-semibold mb-36 rounded-3xl w-48 bg-sectionbtn hover:shadow-filterblue hover:cursor-pointer text-sectionbtncl py-1.5 px-3">
+    <div className="flex items-center justify-between -mt-6 font-semibold mb-24 rounded-3xl w-48 bg-sectionbtn shadow-filter hover:shadow-filterblue hover:cursor-pointer text-sectionbtncl py-1.5 px-3">
         <div></div>
         <div className="flex items-center justify-center">Join Now</div>
         <div className="flex items-end justify-end bg-sectioncircle text-sectionbtn py-2 px-2 w-9 h-9 rounded-full">

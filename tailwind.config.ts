@@ -1,3 +1,4 @@
+import { Roboto } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -45,6 +46,7 @@ const config: Config = {
     extend: {
       boxShadow: {
         'filter': '0 14px 30px rgba(103,132,187,.1), 0 4px 4px rgba(103,132,187,.04)',
+        'badgefilter':'0 14px 30px rgba(103, 132, 187,.15),0 4px 4px rgba(103, 132, 187),.05)',
         'filterblue' : '0 2px 43px rgba(8, 150, 230, .6)',
         'sdcover':'rgba(0, 0, 0, 0.5)' ,
       },
@@ -52,6 +54,9 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      fontFamily: {
+        'roboto':['"Roboto"']
       },
      
     },

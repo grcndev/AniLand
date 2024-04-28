@@ -1,20 +1,20 @@
 
 
 const Badge = ({ title, age, episodes, format, rating, status }) => {
-  
+  const flooteredRating = Math.floor(rating)
   return (
-    <div className="flex flex-col bg-sgtxcol ml-52 mr-8 p-16 rounded -mt-72 w-64 absolute z-30" >
-      <div className="flex flex-col bg-sgtxcol rotate-45 h-8 w-8 -top-8 -ml-16 py-2 relative -z-20">
+    <div className="flex flex-col bg-sgtxcol ml-[220px] p-14 rounded-md mt-6 min-w-72 absolute z-30 shadow-filter" >
+      <div className="flex flex-col bg-sgtxcol rotate-45 h-6 w-4 -top-8 -ml-14 py-2 relative -z-20">
         {" "}
       </div>
-      <div className="flex items-center -mt-20 justify-between">
-        <h4 className="flex text-left -ml-10 w-32 text-txtfilter text-sm">
+      <div className="flex -mt-20 items-center justify-between">
+        <h4 className="flex items-center -ml-10 mt-4 text-txtfilter text-sm">
           {title}
         </h4>
-        <div className="-mr-10 -ml-2">
+        <div className="flex items-center gap-1">
           <svg
             color="rgb(123,213,85)"
-            className="mr-2"
+            className="mt-2"
             aria-hidden="true"
             focusable="false"
             data-prefix="far"
@@ -30,19 +30,19 @@ const Badge = ({ title, age, episodes, format, rating, status }) => {
               fill="currentColor"
             ></path>
           </svg>
-          <h5 className="flex items-left text-txtfilter mt-1 text-sm ">
-            {rating}%
+          <h5 className="flex text-txtfilter mt-3 -mr-9 text-md ">
+            {flooteredRating}%
           </h5>
         </div>
       </div>
       <div>
-        <span className="flex -ml-10 mb-2  mt-4 text-sm text-badgeage">
-          {age}
+        <span className="flex -ml-10  mt-3 text-[12.5px] text-badgeage">
+          {age || 'Teens 12 or older'}
         </span>
-        <span className="flex -ml-10 text-sm mb-4 font-semibold text-txtcard">
-          {format} · {"   "} {episodes} Episodes
+        <span className="flex -ml-10 text-[13px] mb-4 font-normal text-txtcard">
+          {format} {"  "}<span className="ml-1 mr-2 font-bold">·</span> {"   "} {episodes} Episodes
         </span>
-        <span className="flex -ml-10 -mb-6 items-center pl-3 w-16 text-xs text-badgeage rounded-xl bg-badgebg">
+        <span className="flex items-center justify-center -ml-10 -mb-9 mr-14 px-1 w-16 text-xs text-badgeage rounded-xl bg-badgebg">
           {status}
         </span>
       </div>

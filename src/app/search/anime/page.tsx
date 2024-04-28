@@ -3,7 +3,7 @@ import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
 
 const SearchPage = async ({searchParams}) => {
-  console.log({searchParams})
+  
   const search = searchParams.search
   const genres = searchParams.Genres
   const year = searchParams.Year
@@ -24,12 +24,10 @@ const SearchPage = async ({searchParams}) => {
     let filters = ''
     if (queryParams.search) {
       filters += `&filter[text]=${queryParams.search}`
-    
     }
     console.log(queryParams.search)
     if (queryParams.Genres) {
       filters += `&filter[categories]=${queryParams.Genres}`
-
     }
     if (queryParams.Year) {
       filters += `&filter[year]=${queryParams.Year}`

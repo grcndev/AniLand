@@ -12,7 +12,7 @@ const Navbar = () => {
   
   return (
     <div
-      className={ shadowNav ? ('flex justify-evenly items-center mx-auto bg-graynav/[0.5] py-2 h-75 transition-shadow w-full shadow-filter z-100 relative text-sm text-txnav') : ("flex justify-evenly items-center mx-auto py-2 h-75 w-full bg-graynav relative text-sm text-txnav")}
+      className={ shadowNav ? ('flex justify-evenly items-center mx-auto bg-graynav/[0.5] hover:bg-graynav ease-in-out py-2 h-75 transition-shadow w-full shadow-filter z-100 relative text-sm text-txnav') : ("flex justify-evenly items-center mx-auto py-2 h-75 w-full bg-graynav relative text-sm text-txnav")}
       style={{ height: "75px" }}
     >
       <div>
@@ -20,7 +20,7 @@ const Navbar = () => {
       </div>
       <div className="flex justify-between items-center gap-24">
         <div className="flex  cursor-pointer items-center gap-4">
-          <span className="hover:text-hovnav">Search</span>
+          <Link href={`/search/anime?`}> <span className="hover:text-hovnav">Search</span></Link>
           <span className="hover:text-hovnav">Social</span>
           <span className="hover:text-hovnav">Forum</span>
         </div>

@@ -12,7 +12,17 @@ const Card = ({ anime }) => {
  
   return (
     <>
+    
     <div className="w-full text-center relative">
+    { isHovering ? <Badge
+    
+    rating={anime.attributes.averageRating}
+    title={anime.attributes.titles.en || canonicalTitle}
+    episodes={anime.attributes.episodeLength}
+    status={anime.attributes.status}
+    age={anime.attributes.ageRatingGuide}
+    format={anime.attributes.subtype}
+  /> : null }
       <div className="p-4 max-w-6xl mx-auto" >
         <Link href={`/anime/${anime.id}`}>
           <div className="flex flex-col">
@@ -31,15 +41,7 @@ const Card = ({ anime }) => {
           </div>
         </Link>
       </div>
-    { isHovering ? <Badge
     
-    rating={anime.attributes.averageRating}
-    title={anime.attributes.titles.en || canonicalTitle}
-    episodes={anime.attributes.episodeLength}
-    status={anime.attributes.status}
-    age={anime.attributes.ageRatingGuide}
-    format={anime.attributes.subtype}
-  /> : null }
     </div>
     
     </>

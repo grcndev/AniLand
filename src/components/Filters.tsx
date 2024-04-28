@@ -6,8 +6,8 @@ import Filter from "./Filter";
 const Filters = ({ queryParams }) => {
   
   return (
-    <div className="flex flex-wrap grid-cols-1 gap-2 items-center justify-center ml-90 mb-32">
-      <Filter category={"Search"} placeholder={"Search..."} queryParams={queryParams} />
+    <div className="flex flex-wrap grid-cols-1 gap-11 px-24 items-center justify-center ml-90 mb-18">
+      <Filter category={"Search"} queryParams={queryParams} />
       <Filter category={"Genres"} placeholder={"Any"} queryParams={queryParams} />
       <Filter category={"Year"} placeholder={"Any"} queryParams={queryParams} />
       <Filter category={"Season"} placeholder={"Any"} queryParams={queryParams} />

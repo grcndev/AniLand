@@ -1,14 +1,17 @@
 'use client'
 import DropdownContainer from "@/utilities/DropdownContainer";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {FORMAT, GENRES, SEASON, STATUS, YEARS} from '../utilities/Data'
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
 const Filter = ({ category, placeholder, queryParams}) => {
   const [isOpen, setIsOpen] = useState(false)
+
   const router = useRouter()
+
   const handleSubmit = async (e) => {
+   
     e.preventDefault();
     router.push(`/search/anime?search=${queryParams.search}`)
   }
@@ -38,32 +41,33 @@ const Filter = ({ category, placeholder, queryParams}) => {
   return (
     <div onSubmit={handleSubmit}>
       <div className="cursor-pointer z-50">
-        <h6 className="text-txtfilter text-base font-medium pt-3 mb-1">
+        <h6 className="text-txtfilter text-base font-medium pt-4 mb-1">
           {category}
         </h6>
         
-        <div className="items-center rounded-md outline-none bg-white shadow-filter box-border font-medium text-sm flex py-2.5 px-1.5 " >
+        <div className="flex items-center rounded-md outline-none bg-white shadow-filter box-border font-medium text-sm py-2.5 " >
         {category === 'Search' ? (
           <Image
+          className="items-center ml-2"
           height={10}
           width={10}
           alt="chevron"
           src={
             "https://anifinder.netlify.app/static/media/icons-search.aeb48093.svg"
           }
-          style={{ height: "20px", width: "20px" }}
+          style={{ height: "18px", width: "18px" }}
         />
         ): null}
-          <input className="flex focus:outline-none ml-1 text-blue" placeholder={placeholder}
+          <input className="flex focus:outline-none text-blue max-w-36 ml-2" placeholder={placeholder}
           value={queryParams[category]} onChange={(e) => {
             const params = new URLSearchParams(searchParams.toString());
             params.set(category, e.target.value);
             const searchParam = params.get("Search");
-            router.push(`/search/anime?search=${searchParam}`); 
-            
+            router.push(`/search/anime?search=${searchParam}`);
+            setIsOpen(!isOpen) 
           }}
           />
-          {category && category !== 'Search'? (<svg className="h-4 w-6 text-sm text-chevroncol" onClick={() => setIsOpen(!isOpen)}>
+          {category && category !== 'Search'? (<svg className="h-4 w-6 -mt-2 text-sm mr-1 text-chevroncol" onClick={() => setIsOpen(!isOpen)}>
               <path
                 d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
                 fill="currentColor"
@@ -72,7 +76,7 @@ const Filter = ({ category, placeholder, queryParams}) => {
         </div>
       </div>
       {isOpen ? (
-            <DropdownContainer contents={contents} category={category} queryParams={queryParams}/>) : (false)
+            <DropdownContainer contents={contents} category={category} queryParams={queryParams}/>) : (!isOpen)
            }
     </div>
   );
