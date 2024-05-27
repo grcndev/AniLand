@@ -21,7 +21,7 @@ const Home = async () => {
 
   const fetchRows = async () => {
     const trendingResponse = await fetch(
-      `https://kitsu.io/api/edge/trending/anime?limit=20?`
+      `https://kitsu.io/api/edge/trending/anime?limit=40?`
     );
    
     const { data: trendingData } = await trendingResponse.json();

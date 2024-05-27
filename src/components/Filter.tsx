@@ -7,8 +7,17 @@ import Image from "next/image";
 
 const Filter = ({ category, placeholder, queryParams}) => {
   const [isOpen, setIsOpen] = useState(false)
-
   const router = useRouter()
+  
+  const handleClickOutside = () => {
+    setIsOpen(false);
+  };
+  
+  if (isOpen) {
+    document.addEventListener('click', handleClickOutside);
+  } else {
+    document.removeEventListener('click', handleClickOutside);
+  }
 
   const handleSubmit = async (e) => {
    
