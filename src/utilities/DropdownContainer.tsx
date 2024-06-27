@@ -1,10 +1,14 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
+interface DropdownContainerProps {
+  category: string;
+  contents: number[] | string[];
+}
 
-const DropdownContainer = ({ contents, category }) => {
+const DropdownContainer = ({ contents, category }: DropdownContainerProps) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-
+  console.log("oioi", contents);
   return (
     <div className="overflow-hidden overflow-y-auto max-h-96 bg-white rounded-md mt-2 absolute font-medium w-44 text-sm z-40">
       {contents.map((content, index) => (
@@ -32,6 +36,4 @@ const DropdownContainer = ({ contents, category }) => {
 
 export default DropdownContainer;
 
-
-
-// 
+//
