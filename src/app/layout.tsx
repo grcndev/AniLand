@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Overpass } from "next/font/google";
+import { Overpass, Roboto } from "next/font/google";
 import "./globals.css";
 
-
 const overpass = Overpass({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Anilist",
@@ -17,8 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={overpass.className} style={{backgroundColor: "#EDF1F5"}}>
-        {children}</body>
+      <body
+        className={`${overpass.className} ${roboto.className}`}
+        style={{ backgroundColor: "#EDF1F5" }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

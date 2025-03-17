@@ -56,7 +56,7 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
   return (
     <div onSubmit={handleSubmit}>
       <div className="cursor-pointer z-50">
-        <h6 className="text-txtfilter text-base font-medium pt-4 mb-1">
+        <h6 className="text-lead text-base font-medium pt-4 mb-1">
           {category}
         </h6>
         <div className="flex items-center rounded-md outline-none bg-white shadow-filter box-border font-medium text-sm py-2.5 ">
