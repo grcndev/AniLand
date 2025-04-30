@@ -12,7 +12,7 @@ const AnimeContainer = ({ rowsData }) => {
             className="group items-center justify-center flex flex-wrap 2xl:px-24 mt-16 grid-cols-1 gap-2 ml-90"
           >
             <div className="flex flex-col xl:mx-48">
-              <h2 className="text-txtcatg text-xl ml-3 sm:-mb-5 font-medium ">
+              <h2 className="text-txtcatg text-wrap text-xl ml-3 sm:-mb-5 font-medium ">
                 {row.title}
               </h2>
               <Link href={`/search/anime?`}>

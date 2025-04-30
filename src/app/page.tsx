@@ -4,11 +4,6 @@ import Footer from "@/components/Footer";
 import Landing from "@/components/Landing";
 import Navbar from "@/components/Navbar";
 
-// 1. qnd o cara digitar na home page, a gente joga ele pra search page
-// 2. guardar a query da home page e enviar ela pra search page, parece q eh jogo botar no query param
-// 3. primeiro lugar, pegar o query param do url e jogar como valor do input
-// 4. e se houver valor, no query/param/input, a gente faz um fetch
-
 const Home = async () => {
   const queryParams = {
     search: "",

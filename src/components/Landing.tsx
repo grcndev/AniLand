@@ -1,4 +1,4 @@
-import SectionLanding from "@/utilities/SectionLanding";
+import SectionLanding from "./SectionLanding";
 import discover from "../assets/apps.svg";
 import custom from "../assets/custom.svg";
 import social from "../assets/social.svg";
@@ -9,17 +9,17 @@ const Landing = () => {
     <div className="flex flex-col items-center justify-center">
     <div className="flex flex-col bg-bglanding rounded-2xl w-auto px-12 mt-10 lg:mx-24 xl:mx-48 2xl:mx-[26rem]">
       <div className="flex flex-col items-center gap-4 mt-16 font-bold">
-        <h1 className="text-mjtitleldg text-3xl mb-2">
+        <h1 className="text-mjtitleldg text-3xl text-center mb-2 break-all max-w-[100%]">
           The next-generation anime platform
         </h1>
         <h4 className="text-spanldg justify-center text-center text-xl max-w-sm font-light mb-10">
           Track, share, and discover your favorite anime and manga with Anilist
         </h4>
       </div>
-      <div className="flex flex-wrap justify-evenly items-center mb-16">
+      <div className="flex flex-wrap sm:flex-row justify-evenly items-center mb-16">
         <SectionLanding
           svg={stats}
-          sectionTitle={"Discover your obcessions"}
+          sectionTitle={"Discover your obsessions"}
           sectionText={
             "What are your highest rated genres or most watched voice actors? Follow your watching habits over time with in-depth statistics"
           }

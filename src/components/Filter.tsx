@@ -1,5 +1,5 @@
 "use client";
-import DropdownContainer from "@/utilities/DropdownContainer";
+import DropdownContainer from "./DropdownContainer";
 import React, { useState } from "react";
 import { FORMAT, GENRES, SEASON, STATUS, YEARS } from "../utilities/Data";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -16,15 +16,15 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const handleClickOutside = () => {
-    setIsOpen(false);
-  };
+  // const handleClickOutside = () => {
+  //   setIsOpen(false);
+  // };
 
-  if (isOpen) {
-    document.addEventListener("click", handleClickOutside);
-  } else {
-    document.removeEventListener("click", handleClickOutside);
-  }
+  // if (isOpen) {
+  //   document.addEventListener("click", handleClickOutside);
+  // } else {
+  //   document.removeEventListener("click", handleClickOutside);
+  // }
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

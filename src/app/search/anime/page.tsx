@@ -2,6 +2,7 @@ import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
 
+
 const SearchPage = async ({ searchParams }) => {
   const search = searchParams.search;
   const genres = searchParams.Genres;
