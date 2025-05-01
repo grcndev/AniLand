@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 
 const Home = async () => {
   const queryParams = {
-    search: "",
+    Search: "",
     Genres: "",
     Year: "",
     ["Airing Status"]: "",

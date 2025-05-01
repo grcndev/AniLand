@@ -2,9 +2,8 @@ import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
 
-
 const SearchPage = async ({ searchParams }) => {
-  const search = searchParams.search;
+  const search = searchParams.Search;
   const genres = searchParams.Genres;
   const year = searchParams.Year;
   const airing = searchParams["Airing Status"];
@@ -12,7 +11,7 @@ const SearchPage = async ({ searchParams }) => {
   const format = searchParams.Format;
 
   const queryParams = {
-    search: search || "",
+    Search: search || "",
     Genres: genres || "",
     Year: year || "",
     ["Airing Status"]: airing || "",
@@ -22,11 +21,12 @@ const SearchPage = async ({ searchParams }) => {
 
   const handleFetch = async () => {
     let filters = "";
-    if (queryParams.search) {
-      filters += `&filter[text]=${queryParams.search}`;
+    
+    if (queryParams.Search) {
+      filters += `&filter[text]=${queryParams.Search}`;
     }
-    console.log(queryParams.search);
     if (queryParams.Genres) {
+
       filters += `&filter[categories]=${queryParams.Genres}`;
     }
     if (queryParams.Year) {

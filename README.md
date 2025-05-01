@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+About this app
 
-## Getting Started
+This is a personal side project of mine (made with React and Redux), which is based on a anime community app (namely, AniList) I'm very fond of. It is designed to showcase the most recent and core React skills (as of 2020).
+Live demo at https://anifinder.netlify.app/
 
-First, run the development server:
+Home Page	Home Page
+	
+Search Anime	Anime Single Page
+	
+How to run it
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Just type in the terminal:
+npm i
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Technical comments
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project has lots of modern and advanced features, such as the hook system, a great deal of content managed with Redux, Higher Order Components to make it easy to reuse logic throughout the app and much more. It also contains quite a good deal of complex design system, handled mostly by the new grid and flex system, even complex structures such as the the hovering effect is handled by these two powerful tools.
+Issues
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Now, I must say if there's one thing that I think I could have done better is the overall design pattern. Needless to say, I've done it from the absolute ground up, so there was always the possibility of committing some crimes in this regard. Also, I should point that the requests are not 100% optimal, it could've been way better perfomance wise (for example, I did a bit more requests when you load the Home Page than you'd actually need and already stored it in the Redux for later use, but this is not a very scalable code practice).

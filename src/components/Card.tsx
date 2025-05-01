@@ -10,7 +10,6 @@ const Card = ({ anime }) => {
   const canonicalTitle = anime.attributes.canonicalTitle;
   const poster = anime.attributes.posterImage.large;
 
-  console.log(anime);
 
   return (
     <>

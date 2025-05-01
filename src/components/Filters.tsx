@@ -10,7 +10,6 @@ const Filters = ({ queryParams }) => {
       <Filter category={"Search"} queryParams={queryParams} />
       <Filter category={"Genres"} placeholder={"Any"} queryParams={queryParams} />
       <Filter category={"Year"} placeholder={"Any"} queryParams={queryParams} />
-      <Filter category={"Season"} placeholder={"Any"} queryParams={queryParams} />
       <Filter category={"Format"} placeholder={"Any"} queryParams={queryParams} />
       <Filter category={"Airing Status"} placeholder={"Any"} queryParams={queryParams} />
     </div>
