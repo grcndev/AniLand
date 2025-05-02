@@ -28,7 +28,7 @@ const Card = ({ anime }) => {
           <Link href={`/anime/${anime.id}`}>
             <div className="flex flex-col">
               <Image
-                className="h-full mb-3 rounded-sm"
+                className="h-full mb-3 rounded-sm shadow-txtcatg shadow-sm"
                 height={265}
                 width={185}
                 alt="poster"

@@ -13,14 +13,11 @@ interface FilterProps {
 
 const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
   const dropdownRef = useRef<HTMLAnchorElement>(null);
   const searchParams = useSearchParams();
 
   const isSearchFilter = category === "Search";
-
-  // const isSearchActive = e.target.value;
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -81,7 +78,7 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
             />
           ) : null}
 
-          <input
+          {/* <input
             className="flex focus:outline-none text-blue max-w-36 ml-2"
             placeholder={placeholder}
             value={queryParams[category]}
@@ -90,30 +87,47 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
               const typedValue =  e.target.value
                 const params = new URLSearchParams(searchParams.toString());
                 params.set(category, typedValue);
-                router.push(`/search/anime?${params.toString()}`);
+                router.push(/search/anime?${params.toString()});
                 setIsOpen(!isOpen);
+            }}
+          /> */}
+
+          <input
+            className={`flex max-w-36 text-chevroncol/75 ml-2 ${
+              isSearchFilter ? "cursor-text" : "cursor-pointer"
+            } focus:outline-none text-blue`}
+            placeholder={placeholder}
+            value={queryParams[category]}
+            readOnly={!isSearchFilter}
+            onClick={() => setIsOpen((prev) => !prev)}
+            onChange={(e) => {
+              const typedValue = e.target.value;
+              const params = new URLSearchParams(searchParams.toString());
+              params.set(category, typedValue);
+              router.push(`/search/anime?${params.toString()}`);
+              setIsOpen(!isSearchFilter);
             }}
           />
 
-
           {queryParams[category] ? (
             <button
-              className=" bg-blue text-white ml-[-16px] mr-[4px] rounded-full w-4 h-[18px] text-xs text-red-500"
+              className=" text-chevroncol rounded-full font-normal text-[16px] mr-3"
               onClick={() => {
                 const params = new URLSearchParams(window.location.search);
                 params.delete(category);
                 router.push(`/search/anime?${params.toString()}`);
               }}
             >
-              <span className="mt-[-2px]">x</span>
+              <svg className="flex items-center justify-center w-4 h-4"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+              <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
             </button>
           ) : null}
-          {category && category !== "Search" ? (
+          {category && category !== "Search" && !queryParams[category] ? (
             <svg
-              className="h-4 w-6 -mt-2 text-sm mr-1 text-chevroncol"
+              className="h-4 w-6 mt-[-4px] text-sm mr-1 text-chevroncol"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <path
+             <path
                 d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
                 fill="currentColor"
               ></path>

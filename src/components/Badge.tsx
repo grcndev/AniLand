@@ -17,7 +17,7 @@ const Badge = ({
 }: BadgeProps) => {
   const flooteredRating = Math.floor(rating);
   return (
-    <div className="flex flex-col transition ease-in-out delay-150 -translate-y-1 duration-300 bg-white ml-[220px] p-14 rounded-md mt-6 min-w-72 absolute z-30 shadow-filter">
+    <div className="flex flex-col transition ease-in-out delay-150 -translate-y-1 duration-300 bg-white ml-[220px] p-14 rounded-md mt-6 min-w-72 absolute z-30 shadow-txtcatg">
       <div className="flex flex-col bg-white rotate-45 h-6 w-4 -top-8 -ml-14 py-2 relative -z-20">
         {" "}
       </div>
