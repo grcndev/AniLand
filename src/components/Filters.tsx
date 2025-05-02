@@ -2,8 +2,10 @@
 
 import React from "react";
 import Filter from "./Filter";
+import { useAnimes } from "../../src/context/AnimeContext";
 
-const Filters = ({ queryParams }) => {
+const Filters = () => {
+  const { queryParams } = useAnimes()
   
   return (
     <div className="flex flex-wrap grid-cols-1 gap-11 px-24 items-center justify-center ml-90 mb-18">

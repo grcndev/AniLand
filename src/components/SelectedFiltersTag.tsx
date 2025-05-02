@@ -1,8 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
+import { FILTER_KEYS } from "../utilities/Data";
 import React from "react";
-
-const FILTER_KEYS = ["Search", "Genres", "Year", "Airing Status", "Format", "Season"];
 
 const SelectedFiltersTags = () => {
   const searchParams = useSearchParams();

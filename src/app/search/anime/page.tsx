@@ -1,3 +1,4 @@
+
 import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
@@ -22,12 +23,11 @@ const SearchPage = async ({ searchParams }) => {
 
   const handleFetch = async () => {
     let filters = "";
-    
+
     if (queryParams.Search) {
       filters += `&filter[text]=${queryParams.Search}`;
     }
     if (queryParams.Genres) {
-
       filters += `&filter[categories]=${queryParams.Genres}`;
     }
     if (queryParams.Year) {
@@ -52,9 +52,9 @@ const SearchPage = async ({ searchParams }) => {
   return (
     <>
       <Navbar />
-      <Filters queryParams={queryParams} />
-      <Tag/>
-      <FiltersResult results={results} />
+      <Filters />
+      <Tag />
+      <FiltersResult results={results}/>
     </>
   );
 };

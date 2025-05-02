@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { FORMAT, GENRES, STATUS, YEARS } from "../utilities/Data";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useAnimes } from "../../src/context/AnimeContext";
 interface FilterProps {
   category: string;
   placeholder: string;
@@ -11,11 +13,17 @@ interface FilterProps {
   contents: number[] | string[];
 }
 
-const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Filter = ({ category, placeholder}: FilterProps) => {
+ 
+  const { queryParams } = useAnimes()
+   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef<HTMLAnchorElement>(null);
   const searchParams = useSearchParams();
+  const [inputValue, setInputValue] = useState(
+    typeof queryParams[category] === "string" ? queryParams[category] : ""
+  );
+  const debouncedValue = useDebounce(inputValue, 500)
 
   const isSearchFilter = category === "Search";
 
@@ -58,6 +66,25 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isSearchFilter) return;
+  
+    const params = new URLSearchParams(searchParams.toString());
+  
+    if (debouncedValue) {
+      params.set(category, debouncedValue);
+      router.push(`/search/anime?${params.toString()}`);
+
+    } else {
+      params.delete(category);
+    }
+    
+
+  
+  }, [debouncedValue]);
+
+  console.log('queryParams[category]', queryParams[category])
+
   return (
     <div onSubmit={handleSubmit} ref={dropdownRef}>
       <div className="cursor-pointer z-50">
@@ -78,34 +105,17 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
             />
           ) : null}
 
-          {/* <input
-            className="flex focus:outline-none text-blue max-w-36 ml-2"
-            placeholder={placeholder}
-            value={queryParams[category]}
-            onClick={() => setIsOpen((prev) => !prev)}
-            onChange={(e) => {
-              const typedValue =  e.target.value
-                const params = new URLSearchParams(searchParams.toString());
-                params.set(category, typedValue);
-                router.push(/search/anime?${params.toString()});
-                setIsOpen(!isOpen);
-            }}
-          /> */}
-
           <input
-            className={`flex max-w-36 text-chevroncol/75 ml-2 ${
+            className={`first-letter:flex max-w-36 ml-2 ${
               isSearchFilter ? "cursor-text" : "cursor-pointer"
             } focus:outline-none text-blue`}
             placeholder={placeholder}
-            value={queryParams[category]}
+            value={isSearchFilter ? inputValue : (queryParams[category] as string)}
             readOnly={!isSearchFilter}
             onClick={() => setIsOpen((prev) => !prev)}
             onChange={(e) => {
               const typedValue = e.target.value;
-              const params = new URLSearchParams(searchParams.toString());
-              params.set(category, typedValue);
-              router.push(`/search/anime?${params.toString()}`);
-              setIsOpen(!isSearchFilter);
+              if (isSearchFilter) setInputValue(typedValue);
             }}
           />
 
@@ -116,10 +126,20 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
                 const params = new URLSearchParams(window.location.search);
                 params.delete(category);
                 router.push(`/search/anime?${params.toString()}`);
+                if (isSearchFilter) setInputValue("");
               }}
             >
-              <svg className="flex items-center justify-center w-4 h-4"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-              <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+              <svg
+                className="flex items-center justify-center w-4 h-4"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 600 600"
+              >
+                <path
+                  fill="currentColor"
+                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                ></path>
+              </svg>
             </button>
           ) : null}
           {category && category !== "Search" && !queryParams[category] ? (
@@ -127,7 +147,7 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
               className="h-4 w-6 mt-[-4px] text-sm mr-1 text-chevroncol"
               onClick={() => setIsOpen(!isOpen)}
             >
-             <path
+              <path
                 d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
                 fill="currentColor"
               ></path>
@@ -149,3 +169,5 @@ const Filter = ({ category, placeholder, queryParams }: FilterProps) => {
 };
 
 export default Filter;
+
+
