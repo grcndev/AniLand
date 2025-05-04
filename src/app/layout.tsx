@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Overpass, Roboto } from "next/font/google";
 import "./globals.css";
 import { AnimesProvider } from "@/context/AnimeContext";
+import { Suspense } from "react";
 
 const overpass = Overpass({ subsets: ["latin"] });
 const roboto = Roboto({
@@ -26,7 +27,9 @@ export default function RootLayout({
         style={{ backgroundColor: "#EDF1F5" }}
       >
         <AnimesProvider>
+          <Suspense>
         {children}
+        </Suspense>
         </AnimesProvider>
       </body>
     </html>
