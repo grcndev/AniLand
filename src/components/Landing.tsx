@@ -7,7 +7,7 @@ import CustomTooltip from "./CustomTooltipWrapper";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <header className="flex flex-col items-center justify-center">
       <div className="flex flex-col bg-bglanding rounded-2xl w-auto px-12 mt-10 lg:mx-24 xl:mx-48 2xl:mx-[26rem]">
         <div className="flex flex-col items-center gap-4 mt-16 font-bold">
           <h1 className="text-mjtitleldg text-3xl text-center mb-2 break-all max-w-[100%]">
@@ -75,7 +75,7 @@ const Landing = () => {
           </div>
         </div>
       </CustomTooltip>
-    </div>
+    </header>
   );
 };
 

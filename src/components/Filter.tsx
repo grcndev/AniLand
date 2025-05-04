@@ -10,7 +10,6 @@ interface FilterProps {
   category: string;
   placeholder?: string;
   queryParams: { [key: string]: string | string[] };
-  // contents: number[] | string[];
 }
 
 const Filter = ({ category, placeholder}: FilterProps) => {

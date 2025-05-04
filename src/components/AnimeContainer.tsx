@@ -6,7 +6,6 @@ import { Anime, useAnimes } from "../../src/context/AnimeContext";
 
 const AnimeContainer = () => {
   const { isLoading, rowsData } = useAnimes()
-  console.log(rowsData)
   return (
     <>
       {(isLoading ? Array(3).fill(null) : rowsData)?.map((row, index) => (

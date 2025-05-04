@@ -11,7 +11,7 @@ const Navbar = () => {
   const shadowNav = pathname.includes("/anime/");
 
   return (
-    <div
+    <nav
       className={
         shadowNav
           ? "flex justify-center sm:justify-around items-center mx-auto bg-graynav/[0.5] hover:bg-graynav ease-in-out h-75 transition-all w-full collapse md:visible shadow-filter z-100 relative text-sm text-txnav duration-300 delay-100"
@@ -50,7 +50,7 @@ const Navbar = () => {
           </CustomTooltip>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className=" grid mt-10 font-bold bg-footerbg">
+    <footer className=" grid mt-10 font-bold bg-footerbg">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:mt-10 ml-8 sm:ml-48">
         <div>
           <div className="flex mt-6 mb-4 text-blue">Site Theme</div>
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-    </div>
+    </footer>
   );
 };
 
