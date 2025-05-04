@@ -1,11 +1,16 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SectionAnimeId from "../../../components/SectionAnimeId";
-
 import Image from "next/image";
 import React from "react";
 
-const AnimePage = async ({ params }) => {
+type AnimeProps = {
+  params: {
+    id: string;
+  }
+}
+
+const AnimePage = async ({ params }: AnimeProps) => {
   const animeId = params.id;
   const res = await fetch(`https://kitsu.io/api/edge/anime/${animeId}`);
   const anime = await res.json();
