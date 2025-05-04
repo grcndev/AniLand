@@ -2,11 +2,11 @@
 import Card from "./Card";
 import Link from "next/link";
 import Skeleton from '@mui/material/Skeleton';
-import { useAnimes } from "../../src/context/AnimeContext";
+import { Anime, useAnimes } from "../../src/context/AnimeContext";
 
 const AnimeContainer = () => {
   const { isLoading, rowsData } = useAnimes()
-
+  console.log(rowsData)
   return (
     <>
       {(isLoading ? Array(3).fill(null) : rowsData)?.map((row, index) => (
@@ -16,7 +16,7 @@ const AnimeContainer = () => {
         >
           <div className="flex flex-col xl:mx-48">
             <h2 className="text-txtcatg text-wrap text-xl ml-3 sm:-mb-5 font-medium">
-              {row?.title || <Skeleton width={120} />}
+              {row?.title}
             </h2>
 
             <Link href={`/search/anime?`}>
@@ -25,8 +25,8 @@ const AnimeContainer = () => {
               </span>
             </Link>
 
-            <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
-              {(isLoading ? Array(6).fill(null) : row?.data?.slice(0, 6)).map(
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6">
+              {(isLoading ? Array(6).fill(null) : row?.data?.slice(0, 6) as Anime[]).map(
                 (anime, idx) =>
                   isLoading ? (
                     <Skeleton

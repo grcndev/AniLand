@@ -44,7 +44,7 @@ const Navbar = () => {
             </span>
           </CustomTooltip>
           <CustomTooltip title="Coming soon" arrow>
-            <span className="transition ease-in-out delay-150 hover:scale-105 duration-300 mr-4 sm:mr-0 px-4 py-2 bg-royal hover:bg-blue-50 hover:shadow-filterblue active:bg-blue-50 rounded-md text-white hover:bg-royal cursor-pointer">
+            <span className="transition ease-in-out delay-150 hover:scale-105 duration-300 mr-4 sm:mr-0 px-2 sm:px-4 py-2 bg-royal hover:bg-blue-50 hover:shadow-filterblue active:bg-blue-50 rounded-md text-white hover:bg-royal cursor-pointer">
               Sign Up
             </span>
           </CustomTooltip>

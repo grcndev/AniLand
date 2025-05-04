@@ -4,7 +4,20 @@ import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
 import Tag from "@/components/Tag";
 
-const SearchPage = async ({ searchParams }) => {
+type SearchParams = {
+  Search?: string;
+  Genres?: string;
+  Year?: string;
+  Season?: string;
+  Format?: string;
+  "Airing Status"?: string;
+};
+
+type SearchPageProps = {
+  searchParams: SearchParams;
+};
+
+const SearchPage = async ({ searchParams }: SearchPageProps) => {
   const search = searchParams.Search;
   const genres = searchParams.Genres;
   const year = searchParams.Year;

@@ -12,7 +12,7 @@ const Tag = () => {
   );
 
   return (
-    <div className="flex items-center justify-start mx-36 sm:mx-[10px] md:ml-[170px] md:mx-16 lg:mx-20 xl:ml-52 2xl:ml-[320px] xl:mx-24 2xl:max-w-[700px] 2xl:mx-32">
+    <div className="flex items-center justify-start mx-[100px] sm:mx-[18px] md:ml-[12px] md:mx-16 lg:mx-6 lg:ml-4 2xl:ml-[320px] xl:ml-[210px] xl:mx-[160px] 2xl:max-w-[700px] 2xl:mx-32">
       {hasTags && (
         <div className="flex items-center mt-12 w-7 h-7">
           <svg

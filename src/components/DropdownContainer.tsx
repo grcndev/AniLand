@@ -47,7 +47,7 @@ const DropdownContainer = ({
   };
 
   return (
-    <div className="overflow-hidden overflow-y-auto max-h-96 bg-white rounded-md mt-2 absolute font-medium w-44 text-sm z-40 shadow-lg">
+    <div className="overflow-hidden overflow-y-auto max-h-96 bg-white rounded-md mt-2 absolute font-medium w-[182px] sm:w-[132px] md:w-[142px] lg:w-[180px] text-sm z-40 shadow-lg">
       {contents.map((content, index) => {
         const isSelected = selectedValues.includes(
           typeof content === "number"

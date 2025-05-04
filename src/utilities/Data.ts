@@ -17,3 +17,41 @@ export const GENRES = ['Action', 'Adventure', 'Comedy', 'Drama', 'Ecchi', 'Fanta
   
 export const SEASON = ['All', 'Spring', 'Summer', 'Fall', 'Winter']
 
+export const COLORS = [
+  "blue",
+  "strawberry",
+  "royal",
+  "coffee",
+  "lavander",
+  "grass"
+] as const;
+
+export type ColorKey = typeof COLORS[number];
+
+export const colorMap: Record<ColorKey, { text: string; bg: string }> = {
+  blue: {
+    text: "text-blue",
+    bg: "bg-blue",
+  },
+  strawberry: {
+    text: "text-strawberry",
+    bg: "bg-strawberry",
+  },
+  royal: {
+    text: "text-royal",
+    bg: "bg-royal",
+  },
+  coffee: {
+    text: "text-coffee",
+    bg: "bg-coffee",
+  },
+  lavander: {
+    text: "text-lavander",
+    bg: "bg-lavander",
+  },
+  grass: {
+    text: "text-grass",
+    bg: "bg-grass",
+  }
+
+};

@@ -5,6 +5,8 @@ type BadgeProps = {
   format: string;
   rating: number;
   status: string;
+  isHovering: boolean;
+  colorClass: string;
 };
 
 const Badge = ({
@@ -14,15 +16,17 @@ const Badge = ({
   format,
   rating,
   status,
+  isHovering,
+  colorClass
 }: BadgeProps) => {
   const flooteredRating = Math.floor(rating);
   return (
-    <div className="flex flex-col transition ease-in-out delay-150 -translate-y-1 duration-300 bg-white ml-[220px] p-14 rounded-md mt-6 min-w-72 absolute z-30 shadow-txtcatg">
+    <div className={`flex flex-col transform transition-transform ease-in-out duration-300 bg-white ml-[220px] p-14 rounded-md mt-6 min-w-72 absolute z-30 shadow-txtcatg ${isHovering ? 'scale-100' : 'scale-0'}`}>
       <div className="flex flex-col bg-white rotate-45 h-6 w-4 -top-8 -ml-14 py-2 relative -z-20">
         {" "}
       </div>
       <div className="flex -mt-20 items-center justify-between">
-        <h4 className="flex items-center -ml-10 mt-4 text-lead text-sm">
+        <h4 className={`flex items-center -ml-10 mt-4 text-${colorClass} text-sm`}>
           {title}
         </h4>
         <div className="flex items-center gap-1">
@@ -57,7 +61,7 @@ const Badge = ({
           <span className="ml-1 mr-2 font-bold">·</span> {"   "} {episodes}{" "}
           Episodes
         </span>
-        <span className="flex items-center justify-center -ml-10 -mb-9 mr-14 px-1 w-16 text-xs text-coffee rounded-xl bg-mustard">
+        <span className={`flex items-center justify-center -ml-10 -mb-9 mr-14 px-1 w-16 text-xs rounded-xl bg-${colorClass} text-white`}>
           {status}
         </span>
       </div>

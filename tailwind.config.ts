@@ -7,6 +7,14 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/utilities/**/*.{js,ts,jsx,tsx,mdx}",
+  ],safelist: [
+    "text-blue","bg-blue",
+    "text-strawberry", "bg-strawberry",
+    "text-royal", "bg-royal",
+    "text-coffee", "bg-coffee",
+    "text-lavander", "bg-lavander",
+    "text-grass", "bg-grass",
+   
   ],
   theme: {
     colors: {
@@ -34,6 +42,9 @@ const config: Config = {
       "bordersq" : "#46546b",
       "coffee" : "#8a2c0f",
       "mustard" : "#ebb62d",
+      "grass": "#2e8b57",
+      "lavander": "#967BB6",
+      "fucsia": "#8B008B",
       "sectionbtncl" : "#f7fafc",
       "sectioncircle" : "#d9e6ff",
       "chevroncol" : "#ADC0D2" ,

@@ -8,9 +8,9 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useAnimes } from "../../src/context/AnimeContext";
 interface FilterProps {
   category: string;
-  placeholder: string;
+  placeholder?: string;
   queryParams: { [key: string]: string | string[] };
-  contents: number[] | string[];
+  // contents: number[] | string[];
 }
 
 const Filter = ({ category, placeholder}: FilterProps) => {
@@ -18,7 +18,7 @@ const Filter = ({ category, placeholder}: FilterProps) => {
   const { queryParams } = useAnimes()
    const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-  const dropdownRef = useRef<HTMLAnchorElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
   const [inputValue, setInputValue] = useState(
     typeof queryParams[category] === "string" ? queryParams[category] : ""
@@ -81,9 +81,8 @@ const Filter = ({ category, placeholder}: FilterProps) => {
     
 
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedValue]);
-
-  console.log('queryParams[category]', queryParams[category])
 
   return (
     <div onSubmit={handleSubmit} ref={dropdownRef}>
@@ -106,13 +105,13 @@ const Filter = ({ category, placeholder}: FilterProps) => {
           ) : null}
 
           <input
-            className={`first-letter:flex max-w-36 ml-2 ${
+            className={`first-letter:flex sm:max-w-[96px] md:max-w-[104px] lg:max-w-36 ml-2 ${
               isSearchFilter ? "cursor-text" : "cursor-pointer"
             } focus:outline-none text-blue`}
             placeholder={placeholder}
+            onClick={() => setIsOpen((prev) => !prev)}
             value={isSearchFilter ? inputValue : (queryParams[category] as string)}
             readOnly={!isSearchFilter}
-            onClick={() => setIsOpen((prev) => !prev)}
             onChange={(e) => {
               const typedValue = e.target.value;
               if (isSearchFilter) setInputValue(typedValue);
