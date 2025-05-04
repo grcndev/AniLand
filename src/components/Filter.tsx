@@ -15,7 +15,7 @@ interface FilterProps {
 const Filter = ({ category, placeholder}: FilterProps) => {
  
   const { queryParams } = useAnimes()
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
@@ -152,6 +152,7 @@ const Filter = ({ category, placeholder}: FilterProps) => {
             </svg>
           ) : null}
         </div>
+
       </div>
       {isOpen ? (
         <DropdownContainer

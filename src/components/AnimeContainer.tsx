@@ -25,7 +25,7 @@ const AnimeContainer = () => {
             </Link>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6">
-              {(isLoading ? Array(6).fill(null) : row?.data?.slice(0, 6) as Anime[]).map(
+              {(isLoading ? Array(12).fill(null) : row?.data?.slice(0, 12) as Anime[]).map(
                 (anime, idx) =>
                   isLoading ? (
                     <Skeleton

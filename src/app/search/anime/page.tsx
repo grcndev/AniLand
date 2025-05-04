@@ -1,4 +1,3 @@
-
 import Filters from "@/components/Filters";
 import FiltersResult from "@/components/FiltersResult";
 import Navbar from "@/components/Navbar";
@@ -64,9 +63,9 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 
   return (
     <>
-      <Navbar />
-      <Filters />
-      <Tag />
+      <Navbar/>
+      <Filters/>
+      <Tag/>
       <FiltersResult results={results}/>
     </>
   );

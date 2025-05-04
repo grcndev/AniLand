@@ -1,6 +1,5 @@
 "use client"
 import Card from "./Card";
-import Footer from "./Footer";
 import Skeleton from '@mui/material/Skeleton';
 import { Anime, useAnimes } from "../../src/context/AnimeContext";
 
@@ -36,7 +35,6 @@ const FiltersResult = ({ results }: ResultsProps) => {
           </div>
         </div>
       </section>
-      <Footer/>
     </>
   );
 };

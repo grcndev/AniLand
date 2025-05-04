@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Overpass, Roboto } from "next/font/google";
 import "./globals.css";
 import { AnimesProvider } from "@/context/AnimeContext";
-import { Suspense } from "react";
+import RootProviders from "@/components/RootProvider";
+import Footer from "@/components/Footer";
 
 const overpass = Overpass({ subsets: ["latin"] });
 const roboto = Roboto({
@@ -26,11 +27,12 @@ export default function RootLayout({
         className={`${overpass.className} ${roboto.className}`}
         style={{ backgroundColor: "#EDF1F5" }}
       >
-        <AnimesProvider>
-          <Suspense>
-        {children}
-        </Suspense>
-        </AnimesProvider>
+        <RootProviders>
+          <AnimesProvider>
+            {children}
+            <Footer />
+          </AnimesProvider>
+        </RootProviders>
       </body>
     </html>
   );

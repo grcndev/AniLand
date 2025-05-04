@@ -1,20 +1,17 @@
-
+'use client'
 import AnimeContainer from "@/components/AnimeContainer";
 import Filters from "@/components/Filters";
-import Footer from "@/components/Footer";
 import Landing from "@/components/Landing";
 import Navbar from "@/components/Navbar";
 
-const Home = async () => {
-
+const Home = () => {
   return (
-    <>
-      <Navbar />
-      <Landing />
-      <Filters />
-      <AnimeContainer/>
-      <Footer />
-    </>
+      <>
+        <Navbar />
+        <Landing />
+        <Filters />
+        <AnimeContainer/>
+      </>
   );
 };
 
