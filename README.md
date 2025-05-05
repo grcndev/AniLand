@@ -23,7 +23,6 @@ Aniland is a personal side project built with [React](https://reactjs.org/) and 
 
 To run the project locally:
 
-```bash
 npm install
 npm run dev
 Then open http://localhost:3000 in your browser.
