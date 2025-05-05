@@ -1,22 +1,39 @@
-About this app
+# Aniland
 
-This is a personal side project of mine (made with React and Redux), which is based on a anime community app (namely, AniList) I'm very fond of. It is designed to showcase the most recent and core React skills (as of 2020).
-Live demo at https://anifinder.netlify.app/
+## Description
 
-Home Page	Home Page
-	
-Search Anime	Anime Single Page
-	
-How to run it
+Aniland is a personal side project built with [React](https://reactjs.org/) and the Context API, inspired by the anime community platform [AniList](https://anilist.co/). The goal is to showcase modern React development practices and frontend skills.
 
-Just type in the terminal:
-npm i
+👉 [Live Demo](https://aniland.vercel.app/)
 
-npm start
+### Screenshots
 
-Technical comments
+**Home Page**  
+![Home Page](public/screenshots/home.png)
 
-This project has lots of modern and advanced features, such as the hook system, a great deal of content managed with Redux, Higher Order Components to make it easy to reuse logic throughout the app and much more. It also contains quite a good deal of complex design system, handled mostly by the new grid and flex system, even complex structures such as the the hovering effect is handled by these two powerful tools.
-Issues
+**Single Anime View**  
+![Single Anime](public/screenshots/anime-detail.png)
 
-Now, I must say if there's one thing that I think I could have done better is the overall design pattern. Needless to say, I've done it from the absolute ground up, so there was always the possibility of committing some crimes in this regard. Also, I should point that the requests are not 100% optimal, it could've been way better perfomance wise (for example, I did a bit more requests when you load the Home Page than you'd actually need and already stored it in the Redux for later use, but this is not a very scalable code practice).
+**Filters Results**  
+![Filters Results](public/screenshots/filters-result.png)
+
+---
+
+## Getting Started
+
+To run the project locally:
+
+```bash
+npm install
+npm run dev
+Then open http://localhost:3000 in your browser.
+
+
+##Technical Notes
+This project uses modern features like custom hooks, Context API for state management, and Higher-Order Components to reuse logic. 
+The layout relies heavily on CSS Grid and Flexbox, even for more complex UI like hover effects.
+
+##Areas for Improvement
+One area I believe could be improved is the overall architectural design pattern. 
+Since the project was built entirely from scratch, some structural compromises were inevitable. 
+Also, some data fetching isn’t optimized. For example, the Home Page makes extra requests even though the data is already stored in Context, which doesn’t scale well.

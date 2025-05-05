@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Overpass, Roboto } from "next/font/google";
 import "./globals.css";
 import { AnimesProvider } from "@/context/AnimeContext";
-import RootProviders from "@/components/RootProvider";
-import Footer from "@/components/Footer";
+import RootProviders from "@/components/container/RootProvider";
+import Footer from "@/components/layout/Footer";
 
 const overpass = Overpass({ subsets: ["latin"] });
 const roboto = Roboto({

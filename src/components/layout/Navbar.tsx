@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import CustomTooltip from "./CustomTooltipWrapper";
+import CustomTooltip from "../container/CustomTooltipWrapper";
 
 const Navbar = () => {
   const pathname = usePathname();

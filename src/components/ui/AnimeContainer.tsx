@@ -2,7 +2,7 @@
 import Card from "./Card";
 import Link from "next/link";
 import Skeleton from '@mui/material/Skeleton';
-import { Anime, useAnimes } from "../../src/context/AnimeContext";
+import { Anime, useAnimes } from "../../context/AnimeContext";
 
 const AnimeContainer = () => {
   const { isLoading, rowsData } = useAnimes()

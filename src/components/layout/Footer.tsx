@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTooltip from "./CustomTooltipWrapper";
+import CustomTooltip from "../container/CustomTooltipWrapper";
 
 const Footer = () => {
   const sections = [

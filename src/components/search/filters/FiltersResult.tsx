@@ -1,7 +1,7 @@
 "use client"
-import Card from "./Card";
+import Card from "../../ui/Card";
 import Skeleton from '@mui/material/Skeleton';
-import { Anime, useAnimes } from "../../src/context/AnimeContext";
+import { Anime, useAnimes } from "../../../context/AnimeContext";
 
 
 type ResultsProps = {

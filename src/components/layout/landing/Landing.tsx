@@ -1,9 +1,9 @@
 import SectionLanding from "./SectionLanding";
-import discover from "../assets/apps.svg";
-import custom from "../assets/custom.svg";
-import social from "../assets/social.svg";
-import stats from "../assets/stats.svg";
-import CustomTooltip from "./CustomTooltipWrapper";
+import discover from "../../../assets/apps.svg";
+import custom from "../../../assets/custom.svg";
+import social from "../../../assets/social.svg";
+import stats from "../../../assets/stats.svg";
+import CustomTooltip from "../../container/CustomTooltipWrapper";
 
 const Landing = () => {
   return (

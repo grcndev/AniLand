@@ -2,7 +2,7 @@
 import React from "react";
 import { useSearchParams } from "next/navigation";
 import SelectedFiltersTags from "./SelectedFiltersTag";
-import { FILTER_KEYS } from "../utilities/Data";
+import { FILTER_KEYS } from "../../../utilities/Data";
 
 const Tag = () => {
   const searchParams = useSearchParams();
@@ -12,7 +12,7 @@ const Tag = () => {
   );
 
   return (
-    <div className="flex items-center justify-start mx-[52px] sm:ml-2 sm:mx-[66px] md:mx-[16px] lg:mx-[18px] 2xl:ml-[320px] xl:ml-[210px] xl:mx-[160px] 2xl:max-w-[700px] 2xl:mx-32">
+    <div className="flex items-center justify-start mx-[52px] sm:ml-2 sm:mx-[66px] md:min-mx-[16px] lg:mx-[18px] 2xl:ml-[320px] xl:ml-[210px] xl:mx-[160px] 2xl:max-w-[700px] 2xl:mx-32">
       {hasTags && (
         <div className="flex items-center mt-12 w-7 h-7">
           <svg

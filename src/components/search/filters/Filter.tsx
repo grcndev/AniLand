@@ -1,11 +1,11 @@
 "use client";
 import DropdownContainer from "./DropdownContainer";
 import React, { useEffect, useRef, useState } from "react";
-import { FORMAT, GENRES, STATUS, YEARS } from "../utilities/Data";
+import { FORMAT, GENRES, STATUS, YEARS } from "../../../utilities/Data";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useDebounce } from "@/hooks/useDebounce";
-import { useAnimes } from "../../src/context/AnimeContext";
+import { useAnimes } from "../../../context/AnimeContext";
 interface FilterProps {
   category: string;
   placeholder?: string;

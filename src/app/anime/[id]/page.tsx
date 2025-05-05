@@ -1,20 +1,22 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import SectionAnimeId from "../../../components/SectionAnimeId";
+import Navbar from "@/components/layout/Navbar";
+import SectionAnimeId from "../../../components/container/SectionAnimeId";
 import Image from "next/image";
 import React from "react";
+import CustomTooltip from "@/components/container/CustomTooltipWrapper";
 
 type AnimeProps = {
   params: {
     id: string;
-  }
-}
+  };
+};
 
 const AnimePage = async ({ params }: AnimeProps) => {
   const animeId = params.id;
   const res = await fetch(`https://kitsu.io/api/edge/anime/${animeId}`);
   const anime = await res.json();
-  const cover = anime.data.attributes.coverImage.original || anime.data.attributes.coverImage;
+  const cover =
+    anime.data.attributes.coverImage.original ||
+    anime.data.attributes.coverImage;
 
   return (
     <>
@@ -41,31 +43,35 @@ const AnimePage = async ({ params }: AnimeProps) => {
               />
             </div>
             <div className="flex px-4 py-2 h-20">
-              <div className="flex justify-between md:ml-4 sm:ml-2 sm:pl-1 md:pl-10 lg:pl-10 xl:pl-9 my-3.5 rounded-[3px] bg-blue lg:ml-[64px] xl:ml-[240px] 2xl:ml-[274px]">
-                <span className="flex text-sm text-['roboto'] font-normal ml-8 sm:ml-2 sm:w-[494px] w-[226px] md:w-20 items-center justify-center lg:justify-between text-white">
-                  Add to list
-                </span>
-                <span className="w-8 cursor-pointer h-10 ml-2 collapse md:visible flex items-end bg-bgcbody/[0.2]">
-                  <svg className="w-9 h-[33px] ml-1 mt-4 font-[50] text-[4px] text-bgcbody">
+              <CustomTooltip arrow title="Coming soon" placement={"top"}>
+                <div className="flex justify-between md:ml-4 sm:ml-2 sm:pl-1 md:pl-10 lg:pl-10 xl:pl-10 my-3.5 rounded-[3px] bg-blue lg:ml-[64px] xl:ml-[240px] 2xl:ml-[274px]">
+                  <span className="flex text-sm text-['roboto'] font-normal ml-8 sm:ml-2 sm:w-[494px] w-[226px] md:w-20 items-center justify-center lg:justify-between text-white">
+                    Add to list
+                  </span>
+                  <span className="w-8 cursor-pointer h-10 ml-2 collapse md:visible flex items-end bg-bgcbody/[0.2]">
+                    <svg className="w-9 h-[33px] ml-1 mt-4 font-[50] text-[4px] text-bgcbody">
+                      <path
+                        d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </span>
+                </div>
+              </CustomTooltip>
+              <CustomTooltip arrow title="Coming soon" placement={"top"}>
+                <div className="mt-3.5 ml-3 rounded-[3px] w-9 h-9 bg-strawberry">
+                  <svg
+                    className="h-[26px] w-8 items-center text-white mt-2.5 ml-[7px]"
+                    viewBox="0 0 800 800"
+                  >
                     <path
-                      d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
+                      className="h-4 w-4 bg-white"
+                      d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
                       fill="currentColor"
                     ></path>
                   </svg>
-                </span>
-              </div>
-              <div className="mt-3.5 ml-3 rounded-[3px] w-9 h-9 bg-strawberry">
-                <svg
-                  className="h-[26px] w-8 items-center text-white mt-2.5 ml-[7px]"
-                  viewBox="0 0 800 800"
-                >
-                  <path
-                    className="h-4 w-4 bg-white"
-                    d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
+                </div>
+              </CustomTooltip>
             </div>
           </div>
 
@@ -120,7 +126,6 @@ const AnimePage = async ({ params }: AnimeProps) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

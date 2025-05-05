@@ -1,7 +1,7 @@
-import Filters from "@/components/Filters";
-import FiltersResult from "@/components/FiltersResult";
-import Navbar from "@/components/Navbar";
-import Tag from "@/components/Tag";
+import Filters from "@/components/search/filters/Filters";
+import FiltersResult from "@/components/search/filters/FiltersResult";
+import Navbar from "@/components/layout/Navbar";
+import Tag from "@/components/search/tag/Tag";
 
 type SearchParams = {
   Search?: string;
@@ -64,8 +64,10 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   return (
     <>
       <Navbar/>
+      <div className="mx-0">
       <Filters/>
       <Tag/>
+      </div>
       <FiltersResult results={results}/>
     </>
   );

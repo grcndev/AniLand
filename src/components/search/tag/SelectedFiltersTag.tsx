@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import { FILTER_KEYS } from "../utilities/Data";
+import { FILTER_KEYS } from "../../../utilities/Data";
 import React from "react";
 
 const SelectedFiltersTags = () => {
@@ -24,9 +24,9 @@ const SelectedFiltersTags = () => {
         return values.map((value, idx) => (
           <div
             key={`${key}-${idx}`}
-            className="group flex  gap-2 m-2 bg-blue text-white items-center bg-blue-100 text-sm font-medium px-1.5 py-1 rounded-md"
+            className="group flex gap-2 m-2 bg-blue text-white items-center justify-center bg-blue-100 text-sm font-medium px-1.5 py-1 rounded-md"
           >
-            <span className="mr-2">{value}</span>
+            <span className="mr-0.5">{value}</span>
             <button
               onClick={() => handleRemove(key, value)}
               className=" hidden group-hover:flex text-white"
